@@ -90,7 +90,8 @@ const Register = () => {
           ></input>
           <a href="/reset">Reset Password</a>
           <br></br>
-          <a href="/login">Click Here to Log In</a>
+          <a href="/login">Click Here to Log In</a> <br></br>
+          <a href="/adminlogin">Click Here for Admin Log In</a>
         </div>
       </form>
     </div>

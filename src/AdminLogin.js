@@ -1,7 +1,7 @@
-import axios from "axios";
+import React from "react";
 import { useState } from "react";
-
-const Login = () => {
+import axios from "axios";
+export const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,7 +19,7 @@ const Login = () => {
         password: password,
       };
       try {
-        await axios.post("http://localhost:4000/app/login", login);
+        await axios.post("http://localhost:4000/app/adminlogin", login);
       } catch (err) {
         alert(err);
       }
@@ -29,16 +29,15 @@ const Login = () => {
         password: password,
       };
       try {
-        const k = await axios.post("http://localhost:4000/app/login", login);
+        await axios.post("http://localhost:4000/app/adminlogin", login);
         setUsername("");
-        window.location = "/";
+        window.location = "/admin";
       } catch (err) {
         alert(err);
       }
     }
     setPassword("");
   }
-
   return (
     <div className="container1">
       <form className="add-form" onSubmit={onSubmit}>
@@ -57,15 +56,10 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           ></input>
           <input className="btn btn-block" type="submit" value="Log In"></input>
-          <a href="/reset">Reset Password</a>
-          <br></br>
+
           <a href="/">Return to Home Page</a>
-          <br></br>
-          <a href="/adminlogin">Click Here for Admin Log In</a>
         </div>
       </form>
     </div>
   );
 };
-
-export default Login;
